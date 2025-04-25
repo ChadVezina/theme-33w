@@ -1,0 +1,102 @@
+// =========================
+// 1. Variables
+// =========================
+$primary:   #4e8ef7;
+$secondary: #ffd47f;
+$dark:      #2c3e50;
+$light:     #f5f6fa;
+$text:      #333;
+
+// =========================
+// 2. Mixins
+// =========================
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// =========================
+// 3. Global Styles
+// =========================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: $text;
+  background: $light;
+  line-height: 1.6;
+}
+
+// =========================
+// 4. Header
+// =========================
+.site-header {
+  @include flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  color: $light;
+  background: rgba($dark, 0.9);
+  z-index: 10;
+}
+
+// =========================
+// 5. Hero Section
+// =========================
+.hero {
+  @include flex-center;
+  flex-direction: column;
+  height: 80vh;
+  background: linear-gradient(135deg, $primary, darken($primary, 10%));
+  color: #fff;
+  text-align: center;
+}
+
+// =========================
+// 6. Features Section
+// =========================
+.features {
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  background: #fff;
+}
+
+// =========================
+// 7. About Section
+// =========================
+.about {
+  padding: 4rem 2rem;
+  background: lighten($primary, 40%);
+  color: $dark;
+  text-align: center;
+}
+
+// =========================
+// 8. Contact Section
+// =========================
+.contact {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+// =========================
+// 9. Footer
+// =========================
+.site-footer {
+  @include flex-center;
+  height: 60px;
+  background: $dark;
+  color: $light;
+  font-size: 0.9rem;
+}

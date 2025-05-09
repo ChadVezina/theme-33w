@@ -1,7 +1,7 @@
 /*
 Theme Name: thème-33w-été25
 Theme URI: https://referenced.ca
-Author: Eddy Martin
+Author: Chad Vezina
 Author URI: https://github.com/ChadVezina
 Description: Thème de base développer dans le cadre du cours de Wordpress
 Version: 1.0
@@ -16,19 +16,19 @@ Text Domain: club-voyage
 
 /* ============================================   variables */
 @import "variable/dimension";
-//@import "variable/couleurs";
+@import "variable/couleurs";
 
 /* Base */
-//@import "base/titre";
+@import "base/h1";
 
 /* Layout */
 @import "layout/general";
 @import "layout/entete";
 @import "layout/hero";
+@import "layout/recherche-voyage";
+@import "layout/destinations";
+@import "layout/piedpage";
 
-//@import "layout/entete";
-
-/* ////////////////////////////////  composants */
+/* composants */
 @import "composants/recherche";
-//@import "composants/bouton";
-//@import "composants/menu";
+@import "composants/bouton";

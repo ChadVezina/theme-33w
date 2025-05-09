@@ -2,14 +2,41 @@
 /////////////////////////////// Compsant .recherche
 */
 .recherche {
-  border: 1px solid #aaa;
   display: flex;
   align-items: center;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: $fond-clair;
+  max-width: 600px;
+
+  @media screen and (max-width: $point-rupture) {
+      margin: 1rem auto;
+      width: 100%;
+  }
+
   &__input {
     border: none;
     outline: none;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
   }
+
   &__bouton {
+    background-color: transparent;
+    border: none;
     border-left: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover{
+      background-color: $bleu-clair;
+    }
   }
 }

@@ -1,8 +1,16 @@
 /* ///////////////////////////// Layout .entete */
-.chk__menu{
-    display: none;
+
+.chk__menu {
+  display: none;
 }
-.chk__menu:checked ~ .entete__nav
+.chk__menu:checked ~ .entete__nav {
+  display: flex;
+  flex-direction: column;
+  .entete__menu {
+    flex-direction: column;
+  }
+}
+
 .entete {
   background-color: blanchedalmond;
   &__contenu {
@@ -20,16 +28,16 @@
     flex-wrap: wrap;
     margin: 0 2rem 0 auto;
     @media screen and (max-width: $point-rupture) {
-        display: none;
+      display: none;
     }
   }
   &__burger {
     display: none;
     @media screen and (max-width: $point-rupture) {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
   &__menu {

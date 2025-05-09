@@ -1,4 +1,12 @@
 h1{
     font-family: "Montserrat", sans-serif;
-
+    font-size:clamp(1.5rem, 5.4795vw + -.137rem, 5rem)
 }
+h2{
+    font-family: "Poppins", sans-serif;
+    font-size:clamp(1rem, 1.5656vw + .5323rem, 2rem);
+}
+h3{}
+h4{}
+h5{}
+h6{}

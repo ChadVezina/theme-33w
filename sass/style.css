@@ -13,7 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: club-voyage
 */
 /* Importation des  feuilles de style du thème */
-/* variables */
+/* ============================================   variables */
 /* Base */
 /* Layout */
 html {
@@ -51,7 +51,15 @@ body {
   display: none;
 }
 
-.chk__menu:checked ~ .entete__nav .entete {
+.chk__menu:checked ~ .entete__nav {
+  display: flex;
+  flex-direction: column;
+}
+.chk__menu:checked ~ .entete__nav .entete__menu {
+  flex-direction: column;
+}
+
+.entete {
   background-color: blanchedalmond;
   /*  /////////////////////// Navigation */
 }
@@ -63,29 +71,29 @@ body {
   width: 75px;
   height: 75px;
 }
-.chk__menu:checked ~ .entete__nav .entete__nav {
+.entete__nav {
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
   margin: 0 2rem 0 auto;
 }
 @media screen and (max-width: 600px) {
-  .chk__menu:checked ~ .entete__nav .entete__nav {
+  .entete__nav {
     display: none;
   }
 }
-.chk__menu:checked ~ .entete__nav .entete__burger {
+.entete__burger {
   display: none;
 }
 @media screen and (max-width: 600px) {
-  .chk__menu:checked ~ .entete__nav .entete__burger {
+  .entete__burger {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
   }
 }
-.chk__menu:checked ~ .entete__nav .entete__menu {
+.entete__menu {
   display: flex;
   list-style-type: none;
   gap: 1rem;

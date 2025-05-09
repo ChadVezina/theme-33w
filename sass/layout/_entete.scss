@@ -1,5 +1,8 @@
 /* ///////////////////////////// Layout .entete */
-
+.chk__menu{
+    display: none;
+}
+.chk__menu:checked ~ .entete__nav
 .entete {
   background-color: blanchedalmond;
   &__contenu {
@@ -12,7 +15,22 @@
   }
   /*  /////////////////////// Navigation */
   &__nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     margin: 0 2rem 0 auto;
+    @media screen and (max-width: $point-rupture) {
+        display: none;
+    }
+  }
+  &__burger {
+    display: none;
+    @media screen and (max-width: $point-rupture) {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
   }
   &__menu {
     // ul

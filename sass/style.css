@@ -47,31 +47,54 @@ body {
 }
 
 /* ///////////////////////////// Layout .entete */
-.entete {
+.chk__menu {
+  display: none;
+}
+
+.chk__menu:checked ~ .entete__nav .entete {
   background-color: blanchedalmond;
   /*  /////////////////////// Navigation */
 }
-.entete__contenu {
+.chk__menu:checked ~ .entete__nav .entete__contenu {
   display: flex;
   justify-content: space-between;
 }
-.entete__logo {
+.chk__menu:checked ~ .entete__nav .entete__logo {
   width: 75px;
   height: 75px;
 }
-.entete__nav {
+.chk__menu:checked ~ .entete__nav .entete__nav {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   margin: 0 2rem 0 auto;
 }
-.entete__menu {
+@media screen and (max-width: 600px) {
+  .chk__menu:checked ~ .entete__nav .entete__nav {
+    display: none;
+  }
+}
+.chk__menu:checked ~ .entete__nav .entete__burger {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .chk__menu:checked ~ .entete__nav .entete__burger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+.chk__menu:checked ~ .entete__nav .entete__menu {
   display: flex;
   list-style-type: none;
   gap: 1rem;
 }
-.entete__menu-item a {
+.chk__menu:checked ~ .entete__nav .entete__menu-item a {
   display: block;
   background-color: beige;
 }
-.entete__menu-item a:hover {
+.chk__menu:checked ~ .entete__nav .entete__menu-item a:hover {
   background-color: rgb(233, 227, 177);
 }
 

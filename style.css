@@ -3,8 +3,8 @@
 Theme Name: thème-33w-été25
 Theme URI: https://referenced.ca
 Author: Eddy Martin
-Author URI: https://github.com/eddytuto
-Description: Thème de base développer dans le cadre du cours de Worpress
+Author URI: https://github.com/ChadVezina
+Description: Thème de base développer dans le cadre du cours de Wordpress
 Version: 1.0
 Tested up to: 6.2
 Requires PHP: 7.0
@@ -63,11 +63,11 @@ body {
   background-color: blanchedalmond;
   /*  /////////////////////// Navigation */
 }
-.chk__menu:checked ~ .entete__nav .entete__contenu {
+.entete__contenu {
   display: flex;
   justify-content: space-between;
 }
-.chk__menu:checked ~ .entete__nav .entete__logo {
+.entete__logo {
   width: 75px;
   height: 75px;
 }
@@ -98,11 +98,11 @@ body {
   list-style-type: none;
   gap: 1rem;
 }
-.chk__menu:checked ~ .entete__nav .entete__menu-item a {
+.entete__menu-item a {
   display: block;
   background-color: beige;
 }
-.chk__menu:checked ~ .entete__nav .entete__menu-item a:hover {
+.entete__menu-item a:hover {
   background-color: rgb(233, 227, 177);
 }
 

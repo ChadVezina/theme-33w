@@ -2,8 +2,8 @@
 
 ### Première étape du développement d'un thème WP
 
-#### Auteur : Eddy Martin
+#### Auteur : Chad Vezina
 
 #### Adresse de la github-page
 
-https://eddytuto.github.io/33w-ete-25/
+

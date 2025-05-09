@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>prototype de la page d'accueil</title>
+    <title>Mondo Voyages - Voyagez Autrement</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +15,11 @@
   <body>
     <header class="entete">
       <div class="entete__contenu">
-        <img src="images/logo.png" alt="" class="entete__logo" />
+        <div class="entete__logo-container">
+          <a href="#" class="entete__logo-link">
+            <img src="images/logo.png" alt="Mondo Voyages" class="entete__logo" />
+          </a>
+        </div>
         <label for="chk__menu" class="entete__burger">
           <img
             src="https://s2.svgbox.net/hero-outline.svg?ic=menu&color=000"
@@ -26,21 +30,25 @@
         <input type="checkbox" class="chk__menu" id="chk__menu" />
         <nav class="entete__nav">
           <ul class="entete__menu">
-            <li class="entete__menu-item"><a href="#">Aventure</a></li>
-            <li class="entete__menu-item"><a href="#">Culturel</a></li>
-            <li class="entete__menu-item"><a href="#">Zen</a></li>
-            <li class="entete__menu-item"><a href="#">Sport</a></li>
-            <li class="entete__menu-item"><a href="#">Croisière</a></li>
-            <li class="entete__menu-item"><a href="#">Repos</a></li>
+            <li class="entete__menu-item"><a href="#">SPORT</a></li>
+            <li class="entete__menu-item"><a href="#">PLEINE NATURE</a></li>
+            <li class="entete__menu-item"><a href="#">CROISIÈRE</a></li>
+            <li class="entete__menu-item"><a href="#">AVENTURE</a></li>
+            <li class="entete__menu-item"><a href="#">CULTUREL</a></li>
+            <li class="entete__menu-item"><a href="#">REPOS</a></li>
+            <li class="entete__menu-item"><a href="#">ZEN</a></li>
+            <li class="entete__menu-item"><a href="#">ECONOMIQUE</a></li>
+            <li class="entete__menu-item"><a href="#">FAVORITE</a></li>
+            <li class="entete__menu-item"><a href="#">PAYS</a></li>
           </ul>
 
           <form class="recherche" action="">
-            <input class="recherche__input" type="search" name="" id="" />
+            <input class="recherche__input" type="search" placeholder="Recherche..." />
             <button class="recherche__bouton">
               <img
                 src="https://s2.svgbox.net/hero-solid.svg?ic=search&color=000"
-                width="32"
-                height="32"
+                width="24"
+                height="24"
               />
             </button>
           </form>
@@ -49,18 +57,107 @@
     </header>
     <section class="hero">
       <div class="hero__contenu">
-        <h1 class="hero__titre">Club de voyage</h1>
+        <h1 class="hero__titre">Voyagez Autrement avec Mondo Voyages !</h1>
         <p class="hero__description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-          incidunt quas eius totam veniam, molestiae officiis cupiditate ut
-          possimus tempore veritatis illum dignissimos, pariatur atque nulla
-          architecto a natus voluptatibus!
+          Découvrez des destinations uniques et inoubliables avec Mondo Voyages.
+          Nous vous offrons des expériences authentiques, des paysages à couper le souffle
+          et des aventures sur mesure. Partez à la découverte du monde avec nous et créez 
+          des souvenirs impérissables.
         </p>
+        <div class="hero__contact">
+          <p class="hero__email">info@cmaisonneuve.qc.ca</p>
+          <p class="hero__adresse">3800, rue Sherbrooke, Montreal</p>
+          <p class="hero__telephone">514-254-7131</p>
+          <a href="#" class="hero__button">S'INSCRIRE</a>
+          <div class="hero__social">
+            <a href="#" class="hero__social-link">
+              <img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000" width="24" height="24" alt="Facebook">
+            </a>
+            <a href="#" class="hero__social-link">
+              <img src="https://s2.svgbox.net/social.svg?ic=instagram&color=000" width="24" height="24" alt="Instagram">
+            </a>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="galerie">fjfgjfgj</section>
-    <section class="populaire">fjfgj</section>
-    <footer class="piedpage">fjfjfg</footer>
+    <section class="recherche-voyage">
+      <div class="recherche-voyage__container">
+        <div class="recherche-voyage__item">
+          <h3>Départ</h3>
+          <input type="text" placeholder="Date de départ">
+        </div>
+        <div class="recherche-voyage__item">
+          <h3>Retour</h3>
+          <input type="text" placeholder="Date de retour">
+        </div>
+        <div class="recherche-voyage__item">
+          <h3>Budget</h3>
+          <select>
+            <option>Sélectionner un budget</option>
+          </select>
+        </div>
+        <div class="recherche-voyage__item">
+          <h3>Thématique</h3>
+          <select>
+            <option>Choisir une thématique</option>
+          </select>
+        </div>
+        <div class="recherche-voyage__item">
+          <h3>S'INSCRIRE</h3>
+        </div>
+      </div>
+    </section>
+    <section class="destinations">
+      <h2 class="destinations__title">Nos destinations favorites</h2>
+      <div class="destinations__grid">
+        <div class="destination-card">
+          <img src="images/destination1.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination2.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination3.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination4.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination5.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination6.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination7.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination8.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination9.jpg" alt="Destination" class="destination-card__image">
+        </div>
+        <div class="destination-card">
+          <img src="images/destination10.jpg" alt="Destination" class="destination-card__image">
+        </div>
+      </div>
+    </section>
+    <footer class="piedpage">
+      <div class="piedpage__contenu">
+        <div class="piedpage__logo">
+          <img src="images/logo.png" alt="Mondo Voyages" />
+        </div>
+        <div class="piedpage__contact">
+          <p>info@cmaisonneuve.qc.ca</p>
+          <p>3800, rue Sherbrooke, Montreal</p>
+          <p>514-254-7131</p>
+        </div>
+        <div class="piedpage__social">
+          <a href="#"><img src="https://s2.svgbox.net/social.svg?ic=facebook&color=000" width="24" height="24" alt="Facebook"></a>
+          <a href="#"><img src="https://s2.svgbox.net/social.svg?ic=instagram&color=000" width="24" height="24" alt="Instagram"></a>
+        </div>
+      </div>
+    </footer>
   </body>
   <script src="script/checkbox.js"></script>
 </html>

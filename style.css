@@ -495,3 +495,9 @@ body {
 .recherche__bouton:hover {
   background-color: #A7DCEF;
 }/*# sourceMappingURL=style.css.map */
+
+// logo
+.custom-logo{
+  width: 100px;
+  height: auto;
+}

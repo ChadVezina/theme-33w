@@ -16,415 +16,422 @@ Text Domain: club-voyage
 /* ============================================   variables */
 /* Base */
 h1 {
-  font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.5rem, 5.4795vw - 0.137rem, 5rem);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1.5rem, 5.4795vw - 0.137rem, 5rem);
 }
 
 h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(1rem, 1.5656vw + 0.5323rem, 2rem);
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(1rem, 1.5656vw + 0.5323rem, 2rem);
 }
 
 /* Layout */
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
 }
 
 .global {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  max-width: 900px;
-  margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* ///////////////////////////// Layout .entete */
 .chk__menu {
-  display: none;
+    display: none;
 }
 
 .chk__menu:checked ~ .entete__nav {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .chk__menu:checked ~ .entete__nav .entete__menu {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .entete {
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  /*  /////////////////////// Navigation */
-}
-.entete__contenu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-}
-.entete__logo-container {
-  display: flex;
-  align-items: center;
-}
-.entete__logo-link {
-  display: block;
-}
-.entete__logo {
-  width: auto;
-  height: 50px;
-}
-.entete__nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;
-}
-@media screen and (max-width: 768px) {
-  .entete__nav {
-    display: none;
-    position: absolute;
-    top: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    background-color: #FFFFFF;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-  }
+    z-index: 1000;
+    /*  /////////////////////// Navigation */
+}
+.entete__contenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+}
+.entete__logo-container {
+    display: flex;
+    align-items: center;
+}
+.entete__logo-link {
+    display: block;
+}
+.entete__logo {
+    width: auto;
+    height: 50px;
+}
+.entete__nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+img.custom-logo {
+    max-height: 150px;
+    width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .entete__nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
 }
 .entete__burger {
-  display: none;
-  cursor: pointer;
+    display: none;
+    cursor: pointer;
 }
 @media screen and (max-width: 768px) {
-  .entete__burger {
-    display: block;
-  }
+    .entete__burger {
+        display: block;
+    }
 }
 .entete__menu {
-  display: flex;
-  list-style-type: none;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    list-style-type: none;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 @media screen and (max-width: 768px) {
-  .entete__menu {
-    flex-direction: column;
-    width: 100%;
-  }
+    .entete__menu {
+        flex-direction: column;
+        width: 100%;
+    }
 }
 .entete__menu-item a {
-  display: block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: #333333;
-  font-weight: 500;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333333;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
 }
 .entete__menu-item a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #20B2AA;
-  transition: width 0.3s ease;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #20b2aa;
+    transition: width 0.3s ease;
 }
 .entete__menu-item a:hover {
-  color: #20B2AA;
+    color: #20b2aa;
 }
 .entete__menu-item a:hover::after {
-  width: 100%;
+    width: 100%;
 }
 @media screen and (max-width: 768px) {
-  .entete__menu-item a:hover::after {
-    width: 50%;
-  }
+    .entete__menu-item a:hover::after {
+        width: 50%;
+    }
 }
 
 .hero {
-  background-image: url("images/destination1.jpg");
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #FFFFFF;
-  position: relative;
+    background-image: url("images/destination1.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    position: relative;
 }
 .hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 .hero__contenu {
-  display: block;
-  max-width: 900px;
-  padding: 2rem;
-  position: relative;
-  z-index: 2;
+    display: block;
+    max-width: 900px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
 }
 .hero__titre {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 1.5rem;
-  color: #FFFFFF;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
 }
 .hero__description {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  max-width: 600px;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 .hero__contact {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 .hero__button {
-  display: inline-block;
-  background-color: #20B2AA;
-  color: #FFFFFF;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: 600;
-  margin: 1rem 0;
-  transition: all 0.3s ease;
+    display: inline-block;
+    background-color: #20b2aa;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
 }
 .hero__button:hover {
-  background-color: #188781;
+    background-color: #188781;
 }
 .hero__social {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
 }
 .hero__social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 .hero__social-link:hover {
-  background-color: #20B2AA;
+    background-color: #20b2aa;
 }
 @media screen and (max-width: 768px) {
-  .hero__contenu {
-    padding: 1rem;
-  }
+    .hero__contenu {
+        padding: 1rem;
+    }
 }
 
 .recherche-voyage {
-  background-color: #FFFFFF;
-  padding: 1.5rem 0;
-  margin-top: -80px;
-  position: relative;
-  z-index: 10;
+    background-color: #ffffff;
+    padding: 1.5rem 0;
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
 }
 .recherche-voyage__container {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  background-color: #FFFFFF;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 @media screen and (max-width: 768px) {
-  .recherche-voyage__container {
-    flex-direction: column;
-    margin: 0 1rem;
-  }
+    .recherche-voyage__container {
+        flex-direction: column;
+        margin: 0 1rem;
+    }
 }
 .recherche-voyage__item {
-  flex: 1;
-  padding: 1.25rem 1rem;
-  border-right: 1px solid #eee;
+    flex: 1;
+    padding: 1.25rem 1rem;
+    border-right: 1px solid #eee;
 }
 .recherche-voyage__item:last-child {
-  border-right: none;
-  background-color: #20B2AA;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    border-right: none;
+    background-color: #20b2aa;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 .recherche-voyage__item:last-child:hover {
-  background-color: #188781;
+    background-color: #188781;
 }
 .recherche-voyage__item h3 {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
-.recherche-voyage__item input, .recherche-voyage__item select {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.9rem;
+.recherche-voyage__item input,
+.recherche-voyage__item select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
 }
 @media screen and (max-width: 768px) {
-  .recherche-voyage__item {
-    border-right: none;
-    border-bottom: 1px solid #eee;
-  }
+    .recherche-voyage__item {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
 }
 
 .destinations {
-  padding: 4rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .destinations__titre {
-  font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
-  position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
 }
 .destinations__titre::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  width: 60px;
-  height: 3px;
-  background-color: #20B2AA;
-  transform: translateX(-50%);
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    width: 60px;
+    height: 3px;
+    background-color: #20b2aa;
+    transform: translateX(-50%);
 }
 .destinations__grille {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.5rem;
 }
 @media screen and (max-width: 768px) {
-  .destinations__grille {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-    gap: 1rem;
-  }
+    .destinations__grille {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        gap: 1rem;
+    }
 }
 
 .destination-card {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 .destination-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 .destination-card__image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
 }
 
 .piedpage {
-  background-color: #F5F5F5;
-  border-top: 1px solid white;
-  padding: 2rem 1rem;
-  color: #333333;
+    background-color: #f5f5f5;
+    border-top: 1px solid white;
+    padding: 2rem 1rem;
+    color: #333333;
 }
 .piedpage__contenu {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .piedpage__logo img {
-  display: block;
-  width: 120px;
-  height: auto;
+    display: block;
+    width: 120px;
+    height: auto;
 }
 .piedpage__contact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
 }
 .piedpage__contact p {
-  margin: 0;
+    margin: 0;
 }
 .piedpage__social {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 }
 .piedpage__social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  transition: filter 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    transition: filter 0.3s ease;
 }
 .piedpage__social a img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 .piedpage__social a:hover {
-  filter: brightness(0.8);
+    filter: brightness(0.8);
 }
 @media screen and (max-width: 768px) {
-  .piedpage__contenu {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  .piedpage__contact {
-    margin: 1rem 0;
-  }
+    .piedpage__contenu {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .piedpage__contact {
+        margin: 1rem 0;
+    }
 }
 
 /* composants */
@@ -432,39 +439,39 @@ body {
 /////////////////////////////// Compsant .recherche
 */
 .recherche {
-  display: flex;
-  align-items: center;
-  border: 1px solid #aaa;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: #FFFFFF;
-  max-width: 600px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #ffffff;
+    max-width: 600px;
 }
 @media screen and (max-width: 768px) {
-  .recherche {
-    margin: 1rem auto;
-    width: 100%;
-  }
+    .recherche {
+        margin: 1rem auto;
+        width: 100%;
+    }
 }
 .recherche__input {
-  border: none;
-  outline: none;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  font-size: 1rem;
-  font-family: "Poppins", sans-serif;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
 }
 .recherche__bouton {
-  background-color: transparent;
-  border: none;
-  border-left: 1px solid #aaa;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+    background-color: transparent;
+    border: none;
+    border-left: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 .recherche__bouton:hover {
-  background-color: #A7DCEF;
-}/*# sourceMappingURL=style.css.map */
+    background-color: #a7dcef;
+} /*# sourceMappingURL=style.css.map */

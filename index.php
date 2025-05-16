@@ -65,11 +65,11 @@
       <div class="destinations__grille">
         <?php while (have_posts()) : the_post(); ?>
           <div class="destination-card">
-            <?php
-            if (has_post_thumbnail()) {
-              the_post_thumbnail('large', ['class' => 'destination-card__image', 'alt' => get_the_title()]);
-            }
-            ?>
+            <?php if (has_post_thumbnail()) : ?>
+              <div class="destination-card__image">
+                <?php the_post_thumbnail('image-article');?>
+              </div>
+              <?php endif; ?>
             <h3 class="destination-card__title"><?php the_title(); ?></h3>
             <div class="destination-card__content">
               <?php the_content(); ?>

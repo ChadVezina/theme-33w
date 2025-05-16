@@ -352,15 +352,47 @@ body {
 
 .destination-card {
   border-radius: 8px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   padding: 2rem 2rem;
   cursor: pointer;
+  scrollbar-width: thin;
+  scrollbar-color: #20B2AA #f1f1f1;
 }
-.destination-card:hover {
+.destination-card::-webkit-scrollbar {
+  width: 8px;
+}
+.destination-card::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.destination-card::-webkit-scrollbar-thumb {
+  background: #20B2AA;
+  border-radius: 10px;
+}
+.destination-card::-webkit-scrollbar-thumb:hover {
+  background: #188781;
+}
+.destination-card::-webkit-scrollbar-thumb:hover:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.destination-card__title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #20B2AA;
+}
+.destination-card__content {
+  margin-right: auto;
+  /* si ajout d'image dans le contenu
+  @media screen and (max-width: $point-rupture) {
+      max-width: 100%;
+  }
+  */
 }
 
 .piedpage {

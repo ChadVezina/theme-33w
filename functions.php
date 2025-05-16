@@ -20,6 +20,8 @@ add_filter('nav_menu_css_class', 'ajouter_classes_menu', 10, 3);
 function mon_theme_supports()
 {
     add_theme_support('post-thumbnails');
+    set_post_thumbnail_size(600, 400, true);
+    add_image_size('image-article', 600, 400, true);
     add_theme_support('title-tag');
     add_theme_support('menus');
     add_theme_support('custom-logo', array(

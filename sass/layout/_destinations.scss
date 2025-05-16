@@ -32,21 +32,60 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, auto);
             gap: 1rem;
-
         }
     }
 }
 
 .destination-card {
     border-radius: 8px;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 400px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     padding: 2rem 2rem;
     cursor: pointer;
+    // support firefox de la scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: $couleur-primaire #f1f1f1;
 
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    // Scollbar custom
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $couleur-primaire;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: darken($couleur-primaire, 10%);
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+    &__title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: $couleur-primaire;
+    }
+    &__content {
+        //max-width: 60%; si ajout d'image dans le contenu
+        margin-right: auto;
+
+        /* si ajout d'image dans le contenu
+        @media screen and (max-width: $point-rupture) {
+            max-width: 100%;
+        }
+        */
     }
 }

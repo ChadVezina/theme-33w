@@ -28,11 +28,11 @@
   <div class="recherche-voyage__container">
     <div class="recherche-voyage__item">
       <h3>Départ</h3>
-      <input type="text" placeholder="Date de départ">
+      <input type="date" placeholder="Date de départ">
     </div>
     <div class="recherche-voyage__item">
       <h3>Retour</h3>
-      <input type="text" placeholder="Date de retour">
+      <input type="date" placeholder="Date de retour">
     </div>
     <div class="recherche-voyage__item">
       <h3>Budget</h3>

@@ -4,6 +4,6 @@
 
 #### Auteur : Chad Vezina
 
-#### Adresse de la github-page
-[https://chadvezina.github.io/theme-33w/]()
+#### Adresse du serveur distant
+https://gftnth00.mywhc.ca/33we_21/
 

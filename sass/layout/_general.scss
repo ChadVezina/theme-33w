@@ -8,8 +8,7 @@ html {
   box-sizing: inherit;
 }
 * {
-  margin: 0;
-  padding: 0;
+  // border: 1px solid #ccc;
 }
 
 body {
@@ -20,9 +19,8 @@ body {
 }
 
 .global {
-  margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
 }

@@ -1,17 +1,158 @@
 .conteneur {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  // gap: 25px;
-  &__carte {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    flex: 1 0 300px;
-    border: 1px solid #aaa;
-    padding: 10px;
-  }
-  &__galerie {
-    flex: 1 0 100%;
-  }
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+
+    &__carte {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 0 300px;
+        max-width: 400px;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        padding: 0;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: #ccc;
+        }
+
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 15px 20px 10px;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding: 0 20px 20px;
+        }
+
+        &__text {
+            flex-grow: 1;
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        &__button {
+            align-self: flex-end;
+
+            a {
+                display: inline-block;
+                padding: 8px 16px;
+                background-color: #007cba;
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                border-radius: 6px;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 124, 186, 0.2);
+
+                &:hover {
+                    background-color: #005a87;
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 8px rgba(0, 124, 186, 0.3);
+                    text-decoration: none;
+                }
+
+                &:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 4px rgba(0, 124, 186, 0.2);
+                }
+            }
+        }
+    }
+
+    &__galerie {
+        flex: 1 0 100%;
+    }
+}
+
+// Responsive breakpoints
+@media (max-width: 768px) {
+    .conteneur {
+        padding: 15px;
+        gap: 15px;
+
+        &__carte {
+            flex: 1 0 280px;
+            max-width: none;
+
+            h2 {
+                font-size: 1.1rem;
+                margin: 12px 15px 8px;
+            }
+
+            &__content {
+                padding: 0 15px 15px;
+            }
+
+            &__text {
+                font-size: 0.9rem;
+            }
+
+            &__button a {
+                padding: 7px 14px;
+                font-size: 0.85rem;
+            }
+
+            img {
+                height: 180px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .conteneur {
+        padding: 10px;
+        gap: 10px;
+
+        &__carte {
+            flex: 1 0 100%;
+
+            img {
+                height: 160px;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+
+            &__content {
+                padding: 0 10px 10px;
+            }
+
+            &__text {
+                font-size: 0.85rem;
+            }
+
+            &__button a {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    }
 }

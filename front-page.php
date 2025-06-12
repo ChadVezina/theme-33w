@@ -31,10 +31,9 @@
           get_template_part("gabarit/galerie");
         } else {
           get_template_part("gabarit/carte");
+        }
         ?>
-
-
-    <?php }
+    <?php
       }
     } ?>
   </div>

@@ -30,14 +30,7 @@
 
             <input type="checkbox" class="chk__menu" id="chk__menu" />
             <nav class="entete__nav">
-                <!-- ul class="entete__menu">
-                    <li class="entete__menu-item"><a href="#">Aventure</a></li>
-                    <li class="entete__menu-item"><a href="#">Culturel</a></li>
-                    <li class="entete__menu-item"><a href="#">Zen</a></li>
-                    <li class="entete__menu-item"><a href="#">Sport</a></li>
-                    <li class="entete__menu-item"><a href="#">Croisière</a></li>
-                    <li class="entete__menu-item"><a href="#">Repos</a></li>
-                </ul -->
+                
 
                 <?php wp_nav_menu(array(
                     "menu" => "principal",

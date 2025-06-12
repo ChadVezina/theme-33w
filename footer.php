@@ -1,4 +1,4 @@
-<footer class="piedpage">fjfjfg</footer>
+<footer class="piedpage"></footer>
 <script src="script/checkbox.js"></script>
 
 </body>

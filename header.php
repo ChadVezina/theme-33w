@@ -17,7 +17,6 @@
 <body>
     <header class="entete">
         <div class="entete__contenu">
-            <!-- img src="images/logo.png" alt="" class="entete__logo" / -->
             <figure class="entete__logo">
                 <?php echo get_custom_logo(); ?>
             </figure>
@@ -30,7 +29,7 @@
 
             <input type="checkbox" class="chk__menu" id="chk__menu" />
             <nav class="entete__nav">
-                
+
 
                 <?php wp_nav_menu(array(
                     "menu" => "principal",
@@ -40,13 +39,13 @@
 
                 )); ?>
 
-                <form class="recherche" action="">
-                    <input class="recherche__input" type="search" name="" id="" />
-                    <button class="recherche__bouton">
-                        <img
-                            src="https://s2.svgbox.net/hero-solid.svg?ic=search&color=000"
-                            width="32"
-                            height="32" />
+                
+                <form class="recherche" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                    <label>
+                        <input class="recherche__input" type="search" placeholder="Rechercher..." value="<?php echo get_search_query(); ?>" name="s" />
+                    </label>
+                    <button class="recherche__bouton" type="submit">
+                        <span class="recherche__icone">🔍</span>
                     </button>
                 </form>
             </nav>

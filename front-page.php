@@ -1,11 +1,3 @@
-<?php
-
-/**
- * Le modèle  front-page
- * Permet d'afficher la page d'accueil 
- */
-?>
-
 <?php get_header() ?>
 <section class="hero">
   <div class="hero__contenu">
@@ -18,7 +10,6 @@
       créez des souvenirs qui dureront toute une vie.
     </p>
     <div class="hero__actions">
-      <!-- Lien Php va vers category populaire -->
       <?php $category = get_category_by_slug('populaire'); ?>
       <a href="<?php echo get_category_link($category->term_id); ?>" class="btn btn--primary">Découvrir nos destinations</a>
       <a href="#contact" class="btn btn--secondary">Nous rejoindre</a>
@@ -29,7 +20,6 @@
   <div class="conteneur global">
     <?php if (have_posts()) {
       while (have_posts()) {
-        /* affiche l'image « mise en avant » miniature */
         the_post();
     ?>
         <?php

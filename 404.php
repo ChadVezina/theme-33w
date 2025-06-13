@@ -1,12 +1,3 @@
-<?php
-
-/**
- * le modèle index
- * Représente le modèle par défaut
- */
-
-?>
-
 <?php get_header() ?>
 <section class="populaire">
   <h1>Erreur 404</h1>

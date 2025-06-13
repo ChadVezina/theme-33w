@@ -7,16 +7,22 @@
 ?>
 
 <?php get_header() ?>
-<h1>trace seulement à retirer -------------- Front-page.php -----------</h1>
 <section class="hero">
   <div class="hero__contenu">
-    <h1 class="hero__titre">Club de voyage</h1>
+    <h1 class="hero__titre">Club de Voyage Aventure</h1>
     <p class="hero__description">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-      incidunt quas eius totam veniam, molestiae officiis cupiditate ut
-      possimus tempore veritatis illum dignissimos, pariatur atque nulla
-      architecto a natus voluptatibus!
+      Découvrez des destinations extraordinaires avec notre club de voyage passionné.
+      Nous organisons des aventures inoubliables à travers le monde, des plages
+      paradisiaques aux montagnes majestueuses, en passant par les villes historiques
+      et les cultures fascinantes. Rejoignez notre communauté d'explorateurs et
+      créez des souvenirs qui dureront toute une vie.
     </p>
+    <div class="hero__actions">
+      <!-- Lien Php va vers category populaire -->
+      <?php $category = get_category_by_slug('populaire'); ?>
+      <a href="<?php echo get_category_link($category->term_id); ?>" class="btn btn--primary">Découvrir nos destinations</a>
+      <a href="#contact" class="btn btn--secondary">Nous rejoindre</a>
+    </div>
   </div>
 </section>
 <section class="populaire">
@@ -28,7 +34,9 @@
     ?>
         <?php
         if (in_category('galerie')) {
+          /*
           get_template_part("gabarit/galerie");
+          */
         } else {
           get_template_part("gabarit/carte");
         }
@@ -38,4 +46,7 @@
     } ?>
   </div>
 </section>
+
+<!-- Section Contact -->
+<section id="contact"></section>
 <?php get_footer();

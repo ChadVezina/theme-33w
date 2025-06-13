@@ -186,65 +186,67 @@ body {
 }
 .hero__contenu {
   display: block;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 2rem;
   position: relative;
   z-index: 2;
 }
 .hero__titre {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 2rem;
   color: #FFFFFF;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
 }
 .hero__description {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  max-width: 600px;
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
-.hero__contact {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
+.hero__actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
-.hero__button {
-  display: inline-block;
-  background-color: #20B2AA;
-  color: #FFFFFF;
+.hero__actions .btn {
   padding: 1rem 2rem;
-  border-radius: 5px;
   text-decoration: none;
+  border-radius: 5px;
   font-weight: 600;
-  margin: 1rem 0;
   transition: all 0.3s ease;
+  display: inline-block;
 }
-.hero__button:hover {
-  background-color: #188781;
+.hero__actions .btn--primary {
+  background-color: #007cba;
+  color: white;
 }
-.hero__social {
-  margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
+.hero__actions .btn--primary:hover {
+  background-color: #005a8b;
+  transform: translateY(-2px);
 }
-.hero__social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+.hero__actions .btn--secondary {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
 }
-.hero__social-link:hover {
-  background-color: #20B2AA;
+.hero__actions .btn--secondary:hover {
+  background-color: #FFFFFF;
+  color: #333;
 }
 @media screen and (max-width: 768px) {
   .hero__contenu {
     padding: 1rem;
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -402,6 +404,7 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 .piedpage__logo img {
   display: block;
@@ -417,24 +420,24 @@ body {
 .piedpage__contact p {
   margin: 0;
 }
-.piedpage__social {
-  display: flex;
-  gap: 1rem;
-}
-.piedpage__social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  transition: filter 0.3s ease;
-}
-.piedpage__social a img {
+.piedpage__copyright {
   width: 100%;
-  height: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid white;
+  font-size: 0.85rem;
+  color: #666666;
 }
-.piedpage__social a:hover {
-  filter: brightness(0.8);
+.piedpage__copyright p {
+  margin: 0;
+}
+.piedpage__copyright a {
+  color: #20b2aa;
+  text-decoration: none;
+}
+.piedpage__copyright a:hover {
+  text-decoration: underline;
 }
 @media screen and (max-width: 768px) {
   .piedpage__contenu {
@@ -445,6 +448,15 @@ body {
   }
   .piedpage__contact {
     margin: 1rem 0;
+    text-align: center;
+  }
+  .piedpage__social {
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  .piedpage__copyright {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
   }
 }
 
@@ -710,29 +722,6 @@ body {
   opacity: 1;
 }
 
-.conteneur__carte__image {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-  background: #f8f9fa;
-}
-.conteneur__carte__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-.conteneur__carte__image::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
-  pointer-events: none;
-}
-
 .conteneur__carte__content {
   padding: 2rem;
 }
@@ -959,6 +948,7 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 0;
+  transition: transform 0.4s ease;
 }
 .conteneur__carte h2 {
   font-size: 1.25rem;

@@ -23,15 +23,15 @@
 
     &__contenu {
         display: block;
-        max-width: 900px;
+        max-width: 1000px;
         padding: 2rem;
         position: relative;
         z-index: 2;
     }
 
     &__titre {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        margin-bottom: 1.5rem;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        margin-bottom: 2rem;
         color: $texte-clair;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         font-weight: 700;
@@ -39,58 +39,62 @@
     }
 
     &__description {
-        font-size: clamp(1rem, 1.5vw, 1.25rem);
-        max-width: 600px;
-        margin-bottom: 2rem;
-        line-height: 1.6;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        max-width: 700px;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     }
 
-    &__contact {
-        margin-top: 3rem;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-
-    &__button {
-        display: inline-block;
-        background-color: $couleur-primaire;
-        color: $texte-clair;
-        padding: 1rem 2rem;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        margin: 1rem 0;
-        transition: all 0.3s ease;
-
-        &:hover {
-            background-color: darken($couleur-primaire, 10%);
-        }
-    }
-
-    &__social {
-        margin-top: 1.5rem;
+    &__actions {
         display: flex;
-        gap: 1rem;
-    }
+        gap: 1.5rem;
+        flex-wrap: wrap;
 
-    &__social-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgba(255, 255, 255, 0.8);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        transition: all 0.3s ease;
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
 
-        &:hover {
-            background-color: $couleur-primaire;
+            &--primary {
+                background-color: #007cba;
+                color: white;
+
+                &:hover {
+                    background-color: #005a8b;
+                    transform: translateY(-2px);
+                }
+            }
+
+            &--secondary {
+                background-color: transparent;
+                color: $texte-clair;
+                border: 2px solid $texte-clair;
+
+                &:hover {
+                    background-color: $texte-clair;
+                    color: #333;
+                }
+            }
         }
     }
 
     @media screen and (max-width: $point-rupture) {
         &__contenu {
             padding: 1rem;
+        }
+
+        &__actions {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
         }
     }
 }

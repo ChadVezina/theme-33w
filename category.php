@@ -13,7 +13,7 @@
   <div class="conteneur">
     <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
-        <article class="conteneur__carte" onclick="location.href='<?php the_permalink(); ?>'" style="cursor: pointer;">
+        <article class="conteneur__carte">
           <?php if (has_post_thumbnail()) : ?>
             <div class="conteneur__carte__image">
               <?php the_post_thumbnail('medium_large', array('alt' => get_the_title())); ?>

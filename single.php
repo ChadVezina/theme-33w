@@ -23,6 +23,44 @@
                     </div>
                 <?php endif; ?>
 
+                <?php
+                // Récupération des champs personnalisés de température
+                $temp_min = get_field('temperature_minimum');
+                $temp_max = get_field('temperature_maximum');
+                $temp_moy = get_field('temperature_moyenne');
+                ?>
+
+                <?php if ($temp_min || $temp_max || $temp_moy) : ?>
+                    <div class="single-post__temperatures">
+                        <h3 class="single-post__temperatures-title">🌡️ Informations climatiques</h3>
+                        <div class="single-post__temperatures-grid">
+                            <?php if ($temp_min) : ?>
+                                <div class="single-post__temperature-card single-post__temperature-card--<?php echo esc_attr(get_temperature_class($temp_min)); ?>">
+                                    <span class="single-post__temperature-label">Température minimum</span>
+                                    <span class="single-post__temperature-value"><?php echo esc_html($temp_min); ?>°C</span>
+                                    <span class="single-post__temperature-description"><?php echo esc_html(get_temperature_description($temp_min, 'min')); ?></span>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($temp_max) : ?>
+                                <div class="single-post__temperature-card single-post__temperature-card--<?php echo esc_attr(get_temperature_class($temp_max)); ?>">
+                                    <span class="single-post__temperature-label">Température maximum</span>
+                                    <span class="single-post__temperature-value"><?php echo esc_html($temp_max); ?>°C</span>
+                                    <span class="single-post__temperature-description"><?php echo esc_html(get_temperature_description($temp_max, 'max')); ?></span>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($temp_moy) : ?>
+                                <div class="single-post__temperature-card single-post__temperature-card--<?php echo esc_attr(get_temperature_class($temp_moy)); ?>">
+                                    <span class="single-post__temperature-label">Température moyenne</span>
+                                    <span class="single-post__temperature-value"><?php echo esc_html($temp_moy); ?>°C</span>
+                                    <span class="single-post__temperature-description"><?php echo esc_html(get_temperature_description($temp_moy, 'moy')); ?></span>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
                 <div class="single-post__content">
                     <?php the_content(); ?>
                 </div>

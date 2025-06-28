@@ -28,6 +28,8 @@
                 $temp_min = get_field('temperature_minimum');
                 $temp_max = get_field('temperature_maximum');
                 $temp_moy = get_field('temperature_moyenne');
+                // Récupération du champ personnalisé note générale
+                $note_general = get_field('note_general');
                 ?>
 
                 <?php if ($temp_min || $temp_max || $temp_moy) : ?>
@@ -57,6 +59,26 @@
                                     <span class="single-post__temperature-description"><?php echo esc_html(get_temperature_description($temp_moy, 'moy')); ?></span>
                                 </div>
                             <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($note_general) : ?>
+                    <div class="single-post__note-section">
+                        <h3 class="single-post__note-title">⭐ Évaluation de la destination</h3>
+                        <div class="single-post__note-card">
+                            <span class="single-post__note-label">Note générale</span>
+                            <span class="single-post__note-value"><?php echo esc_html($note_general); ?>/5</span>
+                            <span class="single-post__note-description">
+                                <?php
+                                $note = floatval($note_general);
+                                if ($note >= 4.5) echo "Destination exceptionnelle";
+                                elseif ($note >= 4.0) echo "Très bonne destination";
+                                elseif ($note >= 3.5) echo "Bonne destination";
+                                elseif ($note >= 3.0) echo "Destination correcte";
+                                else echo "Destination à améliorer";
+                                ?>
+                            </span>
                         </div>
                     </div>
                 <?php endif; ?>

@@ -12,15 +12,27 @@
         <?php
         // Récupération du champ personnalisé de température moyenne uniquement
         $temp_moy = get_field('temperature_moyenne');
+        // Récupération du champ personnalisé note générale
+        $note_general = get_field('note_general');
         ?>
 
-        <?php if ($temp_moy) : ?>
-            <div class="conteneur__carte__temperature">
-                <span class="conteneur__carte__temperature-value conteneur__carte__temperature-value--<?php echo esc_attr(get_temperature_class($temp_moy)); ?>">
-                    <?php echo esc_html($temp_moy); ?>°C
-                </span>
-            </div>
-        <?php endif; ?>
+        <div class="conteneur__carte__info">
+            <?php if ($temp_moy) : ?>
+                <div class="conteneur__carte__temperature">
+                    <span class="conteneur__carte__temperature-value conteneur__carte__temperature-value--<?php echo esc_attr(get_temperature_class($temp_moy)); ?>">
+                        <?php echo esc_html($temp_moy); ?>°C
+                    </span>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($note_general) : ?>
+                <div class="conteneur__carte__note">
+                    <span class="conteneur__carte__note-value">
+                       ⭐ <?php echo esc_html($note_general); ?>/5
+                    </span>
+                </div>
+            <?php endif; ?>
+        </div>
 
         <div class="conteneur__carte__text">
             <?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?>

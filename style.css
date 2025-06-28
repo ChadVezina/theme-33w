@@ -87,8 +87,14 @@ body {
   display: block;
 }
 .entete__logo {
-  width: auto;
-  height: 50px;
+  width: 100px;
+  height: 100px;
+  margin-top: 2rem;
+}
+.entete__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .entete__nav {
   display: flex;

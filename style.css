@@ -146,6 +146,7 @@ body {
 @media screen and (max-width: 768px) {
   .entete__burger {
     display: block;
+    margin-top: 3rem;
   }
 }
 .entete__menu {
@@ -729,6 +730,37 @@ body {
       max-width: 100%;
   }
   */
+}
+
+.populaire__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.populaire__titre {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.populaire__titre::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 60px;
+  height: 3px;
+  background-color: #20B2AA;
+  transform: translateX(-50%);
+}
+.populaire__description {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333333;
 }
 
 body {

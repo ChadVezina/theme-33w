@@ -223,33 +223,27 @@ add_action('customize_register', 'theme_customize_register');
  */
 function render_hero_section()
 {
-    $title       = get_theme_mod('hero_title');
-    $description = get_theme_mod('hero_description');
+    // Hero main content
+    $title       = get_theme_mod('hero_title', 'Club de Voyage Aventure');
+    $description = get_theme_mod('hero_description', 'Découvrez des destinations extraordinaires avec notre club de voyage passionné.');
     $bg          = get_theme_mod('hero_bg_image');
     $text_color  = get_theme_mod('hero_text_color');
-    // Hero button texts, URLs, colors
-    $btn1_text       = get_theme_mod('hero_btn1_text');
+    // Hero button texts, URLs, colors and opacity
+    $btn1_text       = get_theme_mod('hero_btn1_text', 'Découvrir nos destinations');
     $btn1_url        = get_theme_mod('hero_btn1_url');
-    $btn1_bg_color   = get_theme_mod('hero_btn1_bg_color');
-    $btn1_text_color = get_theme_mod('hero_btn1_text_color');
-    $btn2_text       = get_theme_mod('hero_btn2_text');
-    $btn2_url        = get_theme_mod('hero_btn2_url');
-    $btn2_bg_color   = get_theme_mod('hero_btn2_bg_color');
-    $btn2_text_color = get_theme_mod('hero_btn2_text_color');
+    $btn1_bg_color   = get_theme_mod('hero_btn1_bg_color', '#ff6600');
+    $btn1_text_color = get_theme_mod('hero_btn1_text_color', '#ffffff');
+    $btn1_opacity    = get_theme_mod('hero_btn1_bg_opacity', 1);
+    $btn2_text       = get_theme_mod('hero_btn2_text', 'Nous rejoindre');
+    $btn2_url        = get_theme_mod('hero_btn2_url', '#contact');
+    $btn2_bg_color   = get_theme_mod('hero_btn2_bg_color', '#ffffff');
+    $btn2_text_color = get_theme_mod('hero_btn2_text_color', '#000000');
+    $btn2_opacity    = get_theme_mod('hero_btn2_bg_opacity', 1);
     // Per-element animations
-    $title_anim      = get_theme_mod('hero_title_animation');
-    $desc_anim       = get_theme_mod('hero_description_animation');
-    $btn1_anim       = get_theme_mod('hero_btn1_animation');
-    $btn2_anim       = get_theme_mod('hero_btn2_animation');
-    // Convert hex to rgba for buttons
-    $c1 = str_replace('#','',$btn1_bg_color);
-    if(strlen($c1)===3) $c1 = $c1[0].$c1[0].$c1[1].$c1[1].$c1[2].$c1[2];
-    $r1 = hexdec(substr($c1,0,2)); $g1 = hexdec(substr($c1,2,2)); $b1 = hexdec(substr($c1,4,2));
-    $btn1_rgba = "rgba($r1,$g1,$b1)";
-    $c2 = str_replace('#','',$btn2_bg_color);
-    if(strlen($c2)===3) $c2 = $c2[0].$c2[0].$c2[1].$c2[1].$c2[2].$c2[2];
-    $r2 = hexdec(substr($c2,0,2)); $g2 = hexdec(substr($c2,2,2)); $b2 = hexdec(substr($c2,4,2));
-    $btn2_rgba = "rgba($r2,$g2,$b2)";
+    $title_anim      = get_theme_mod('hero_title_animation', 'none');
+    $desc_anim       = get_theme_mod('hero_description_animation', 'none');
+    $btn1_anim       = get_theme_mod('hero_btn1_animation', 'none');
+    $btn2_anim       = get_theme_mod('hero_btn2_animation', 'none');
 ?>
     <section class="hero" style="background-image: url('<?php echo esc_url($bg); ?>');">
         <div class="hero__overlay"></div>
@@ -258,19 +252,15 @@ function render_hero_section()
             <p class="hero__description<?php echo $desc_anim !== 'none' ? ' hero__description--'.esc_attr($desc_anim) : ''; ?>"><?php echo esc_html($description); ?></p>
             <div class="hero__actions">
                 <?php $category = get_category_by_slug('populaire'); ?>
-                <?php if (!empty($btn1_url)): ?>
-                    <a href="<?php echo esc_url($btn1_url); ?>" class="btn btn--primary<?php echo $btn1_anim !== 'none' ? ' btn--primary--'.esc_attr($btn1_anim) : ''; ?>" style="background-color: <?php echo esc_attr($btn1_rgba); ?>; color: <?php echo esc_attr($btn1_text_color); ?>;">
-                        <?php echo esc_html($btn1_text); ?>
-                    </a>
-                <?php else: ?>
-                    <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="btn btn--primary<?php echo $btn1_anim !== 'none' ? ' btn--primary--'.esc_attr($btn1_anim) : ''; ?>" style="background-color: <?php echo esc_attr($btn1_rgba); ?>; color: <?php echo esc_attr($btn1_text_color); ?>;">
-                        <?php echo esc_html($btn1_text); ?>
-                    </a>
-                <?php endif; ?>
-                <a href="<?php echo esc_url($btn2_url); ?>" class="btn btn--secondary<?php echo $btn2_anim !== 'none' ? ' btn--secondary--'.esc_attr($btn2_anim) : ''; ?>" style="background-color: <?php echo esc_attr($btn2_rgba); ?>; color: <?php echo esc_attr($btn2_text_color); ?>;">
+                <?php $url1 = !empty($btn1_url) ? esc_url($btn1_url) : esc_url(get_category_link($category->term_id)); ?>
+                <a href="<?php echo $url1; ?>" class="btn btn--primary<?php echo $btn1_anim !== 'none' ? ' btn--primary--'.esc_attr($btn1_anim) : ''; ?>" style="background-color: <?php echo esc_attr($btn1_bg_color); ?>; color: <?php echo esc_attr($btn1_text_color); ?>;">
+                    <?php echo esc_html($btn1_text); ?>
+                </a>
+                <a href="<?php echo esc_url($btn2_url); ?>" class="btn btn--secondary<?php echo $btn2_anim !== 'none' ? ' btn--secondary--'.esc_attr($btn2_anim) : ''; ?>" style="background-color: <?php echo esc_attr($btn2_bg_color); ?>; color: <?php echo esc_attr($btn2_text_color); ?>;">
                     <?php echo esc_html($btn2_text); ?>
                 </a>
             </div>
+            
         </div>
     </section>
 <?php
@@ -281,9 +271,9 @@ function render_hero_section()
  */
 function render_footer_content()
 {
-    $email   = get_theme_mod('footer_email');
-    $phone   = get_theme_mod('footer_phone');
-    $address = get_theme_mod('footer_address');
+    $email   = get_theme_mod('footer_email', 'info@clubvoyage.com');
+    $phone   = get_theme_mod('footer_phone', '(555) 123-4567');
+    $address = get_theme_mod('footer_address', '123 Rue du Voyage, Montréal, QC');
 ?>
     <div class="piedpage__contenu" id="contact">
         <div class="piedpage__logo">

@@ -1,5 +1,5 @@
 <footer class="piedpage">
-    <?php get_template_part('gabarit/footer-content'); ?>
+    <?php render_footer_content(); ?>
 </footer>
 
 <script src="<?php echo get_template_directory_uri(); ?>/script/checkbox.js"></script>

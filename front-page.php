@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-<?php get_template_part('gabarit/hero'); ?>
+<?php render_hero_section(); ?>
 
 <?php get_template_part('gabarit/populaire'); ?>
 

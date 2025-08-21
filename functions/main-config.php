@@ -22,6 +22,34 @@ function theme_tp_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'theme_tp_enqueue_styles');
 
+/**
+ * Enqueue JavaScript files
+ */
+function theme_tp_enqueue_scripts()
+{
+    // Enqueue carousel script
+    wp_enqueue_script(
+        'hero-carousel',
+        get_template_directory_uri() . '/script/carousel.js',
+        array(), // No dependencies
+        '1.0.0',
+        true // Load in footer
+    );
+
+    // Enqueue checkbox script
+    wp_enqueue_script(
+        'checkbox',
+        get_template_directory_uri() . '/script/checkbox.js',
+        array(),
+        '1.0.0',
+        true
+    );
+
+    // Note: hero.js is temporarily disabled to avoid conflicts with the new carousel system
+    // If needed, it can be re-enabled after reviewing its compatibility
+}
+add_action('wp_enqueue_scripts', 'theme_tp_enqueue_scripts');
+
 
 /**
  * Modifie la requete principale de WordPress avant qu'elle soit exécuté

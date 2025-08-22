@@ -10,11 +10,10 @@ body {
 
 .piedpage {
     background-color: $fond-sombre;
-    border-top: 1px solid lighten($fond-sombre, 10%);
+    border-top: 1px solid color.adjust($fond-sombre, $lightness: 10%);
     padding: 2rem 1rem;
     color: $texte-sombre;
     margin-top: auto;
-    
 
     &__contenu {
         max-width: 1200px;
@@ -50,9 +49,9 @@ body {
         text-align: center;
         margin-top: 2rem;
         padding-top: 1.5rem;
-        border-top: 1px solid lighten($fond-sombre, 15%);
+        border-top: 1px solid color.adjust($fond-sombre, $lightness: 15%);
         font-size: 0.85rem;
-        color: lighten($texte-sombre, 20%);
+        color: color.adjust($texte-sombre, $lightness: 20%);
 
         p {
             margin: 0;

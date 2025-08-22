@@ -53,7 +53,7 @@
 
     &__description {
         font-size: 1.2rem;
-        color: lighten($texte-sombre, 10%);
+        color: color.adjust($texte-sombre, $lightness: 10%);
         line-height: 1.6;
         margin-bottom: 3rem;
         max-width: 600px;
@@ -96,7 +96,7 @@
             font-size: 1rem;
 
             &--primary {
-                background: linear-gradient(135deg, $couleur-primaire, darken($couleur-primaire, 10%));
+                background: linear-gradient(135deg, $couleur-primaire, color.adjust($couleur-primaire, $lightness: -10%));
                 color: white;
                 box-shadow: 0 4px 15px rgba($couleur-primaire, 0.3);
 
@@ -126,7 +126,7 @@
     }
 
     &__search {
-        background: lighten($fond-clair, 2%);
+        background: color.adjust($fond-clair, $lightness: 2%);
         padding: 2rem;
         border-radius: 15px;
         border: 1px solid #eee;
@@ -198,7 +198,7 @@
             margin-right: 0.25rem;
 
             &:hover {
-                background-color: darken($couleur-primaire, 10%);
+                background-color: color.adjust($couleur-primaire, $lightness: -10%);
                 transform: scale(1.05);
             }
 
@@ -236,7 +236,7 @@
         &-link {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background: lighten($couleur-primaire, 45%);
+            background: color.adjust($couleur-primaire, $lightness: 45%);
             color: $couleur-primaire;
             text-decoration: none;
             border-radius: 25px;

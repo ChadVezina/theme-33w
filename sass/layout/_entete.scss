@@ -183,7 +183,7 @@
             margin-right: 0.25rem;
 
             &:hover {
-                background-color: darken($couleur-primaire, 10%);
+                background-color: color.adjust($couleur-primaire, $lightness: -10%);
                 transform: scale(1.05);
             }
 

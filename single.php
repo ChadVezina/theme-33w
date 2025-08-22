@@ -1,5 +1,8 @@
 <?php get_header() ?>
 
+<!-- TEMPLATE: single.php - Posts génériques -->
+<!-- POST TYPE: <?php echo get_post_type(); ?> -->
+
 <main class="single-post">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>

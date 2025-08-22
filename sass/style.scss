@@ -12,6 +12,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: club-voyage
 */
 
+/* Importation du module color pour les nouvelles fonctions Sass */
+@use "sass:color";
+
 /* Importation des  feuilles de style du thème */
 
 /* ============================================   variables */
@@ -29,6 +32,7 @@ Text Domain: club-voyage
 @import "layout/destinations";
 @import "layout/piedpage";
 @import "layout/single";
+@import "layout/single-post";
 @import "layout/category";
 @import "layout/404";
 

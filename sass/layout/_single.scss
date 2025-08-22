@@ -27,7 +27,7 @@
         flex-wrap: wrap;
         gap: 1rem;
         font-size: 0.9rem;
-        color: lighten($texte-clair, 20%);
+        color: color.adjust($texte-clair, $lightness: 20%);
     }
 
     &__date,
@@ -90,7 +90,7 @@
             padding-left: 1.5rem;
             margin: 2rem 0;
             font-style: italic;
-            color: lighten($texte-clair, 10%);
+            color: color.adjust($texte-clair, $lightness: 10%);
         }
 
         img {
@@ -103,7 +103,7 @@
     &__footer {
         padding: 1.5rem 2rem;
         border-top: 1px solid #eee;
-        background: lighten($texte-clair, 2%);
+        background: color.adjust($texte-clair, $lightness: 2%);
     }
 
     &__tags {
@@ -125,7 +125,7 @@
             transition: background 0.3s;
 
             &:hover {
-                background: darken($couleur-primaire, 10%);
+                background: color.adjust($couleur-primaire, $lightness: -10%);
             }
         }
     }
@@ -150,7 +150,7 @@
         }
 
         p {
-            color: lighten($texte-clair, 20%);
+            color: color.adjust($texte-clair, $lightness: 20%);
         }
     }
 
@@ -324,7 +324,6 @@
             height: 4px;
             background: linear-gradient(90deg, #ffd700, #ffb300);
         }
-
     }
 
     &__note-label {

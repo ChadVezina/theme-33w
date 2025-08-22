@@ -1,0 +1,167 @@
+// Styles pour le formulaire d'inscription avec variables du thème
+.inscription {
+    background: $fond-sombre;
+    padding: 4rem 0;
+    margin: 2rem 0;
+    border-top: 4px solid $couleur-primaire;
+    position: relative;
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+    }
+
+    h2 {
+        color: $texte-sombre;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    > div > p {
+        color: $texte-sombre;
+        text-align: center;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.8;
+    }
+}
+
+.formulaire-inscription {
+    background: $fond-clair;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px $ombre-legere;
+    border: 1px solid color.adjust($texte-sombre, $lightness: 70%);
+    position: relative;
+
+    .champs-groupe {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .champ {
+        display: flex;
+        flex-direction: column;
+
+        &.champ-large {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            color: $texte-sombre;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            padding: 1rem;
+            border: 2px solid color.adjust($texte-sombre, $lightness: 60%);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: $fond-clair;
+            color: $texte-sombre;
+
+            &:focus {
+                outline: none;
+                border-color: $couleur-primaire;
+                box-shadow: 0 0 0 3px rgba($couleur-primaire, 0.1);
+            }
+
+            &:valid {
+                border-color: $vert-principal;
+            }
+        }
+    }
+
+    .champ-submit {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-inscription {
+        background: $gradient-principal;
+        color: $texte-clair;
+        border: none;
+        padding: 1rem 3rem;
+        border-radius: 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:hover {
+            background: $bleu-fonce;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba($couleur-primaire, 0.3);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    .mentions {
+        color: color.adjust($texte-sombre, $lightness: 30%);
+        font-size: 0.8rem;
+        text-align: center;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+// Message de succès avec variables du thème
+.message-succes-inscription {
+    background: $vert-principal;
+    color: $texte-clair;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    margin: 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba($vert-principal, 0.3);
+
+    p {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .inscription {
+        padding: 3rem 0;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        .container {
+            padding: 0 1rem;
+        }
+    }
+
+    .formulaire-inscription {
+        padding: 2rem 1.5rem;
+
+        .btn-inscription {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

@@ -131,3 +131,16 @@ function fix_category_links_in_menu($items, $args)
     return $items;
 }
 add_filter('wp_nav_menu_objects', 'fix_category_links_in_menu', 10, 2);
+
+/**
+ * Affichage du message d'inscription simple
+ */
+function afficher_message_inscription_simple()
+{
+    if (isset($_GET['inscription']) && $_GET['inscription'] == 'merci') {
+        echo '<div class="message-succes" style="background: #28a745; color: white; padding: 1rem; text-align: center; margin: 1rem 0; border-radius: 5px;">
+                <p>✅ Merci pour votre inscription !</p>
+              </div>';
+    }
+}
+add_action('wp_footer', 'afficher_message_inscription_simple');

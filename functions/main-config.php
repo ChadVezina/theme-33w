@@ -17,7 +17,7 @@ add_action('after_setup_theme', 'mon_theme_supports');
 
 function theme_tp_enqueue_styles()
 {
-    wp_enqueue_style('normalize', get_template_directory_uri() . 'normalize.css');
+    wp_enqueue_style('normalize', get_template_directory_uri() . '/normalize.css');
     wp_enqueue_style('main-style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'theme_tp_enqueue_styles');
@@ -60,10 +60,74 @@ add_action('wp_enqueue_scripts', 'theme_tp_enqueue_scripts');
  */
 function modifie_requete_principal($query)
 {
-    if ($query->is_home() && $query->is_main_query() && ! is_admin()) {
+    // Seulement pour la vraie page d'accueil (pas les catégories)
+    if (
+        $query->is_home() && $query->is_main_query() && ! is_admin()
+        && empty($query->query_vars['category_name'])
+        && empty($query->query_vars['cat'])
+        && empty($query->query_vars['pagename'])
+    ) {
         $query->set('category_name', 'populaire');
         $query->set('orderby', 'title');
         $query->set('order', 'ASC');
     }
 }
 add_action('pre_get_posts', 'modifie_requete_principal');
+
+/**
+ * Force l'utilisation du template category.php pour les vraies pages de catégories
+ */
+function force_category_template($template)
+{
+    if (is_category()) {
+        $category_template = locate_template('category.php');
+        if ($category_template) {
+            return $category_template;
+        }
+    }
+    return $template;
+}
+add_filter('template_include', 'force_category_template');
+
+/**
+ * Corrige automatiquement les liens de catégories dans les menus
+ * pour utiliser /category/slug au lieu de /slug
+ */
+function fix_category_links_in_menu($items, $args)
+{
+    // Seulement pour le menu principal
+    if ($args->theme_location == 'principal') {
+        foreach ($items as $item) {
+            // Si c'est un lien vers une catégorie qui pourrait causer un conflit
+            if (strpos($item->url, '/aventure/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/aventure/', '/category/aventure/', $item->url);
+            }
+            if (strpos($item->url, '/croisiere/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/croisiere/', '/category/croisiere/', $item->url);
+            }
+            if (strpos($item->url, '/culturel/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/culturel/', '/category/culturel/', $item->url);
+            }
+            if (strpos($item->url, '/economique/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/economique/', '/category/economique/', $item->url);
+            }
+            if (strpos($item->url, '/pleine-nature/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/pleine-nature/', '/category/pleine-nature/', $item->url);
+            }
+            if (strpos($item->url, '/populaire/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/populaire/', '/category/populaire/', $item->url);
+            }
+            if (strpos($item->url, '/repos/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/repos/', '/category/repos/', $item->url);
+            }
+            if (strpos($item->url, '/sport/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/sport/', '/category/sport/', $item->url);
+            }
+            if (strpos($item->url, '/zen/') !== false && strpos($item->url, '/category/') === false) {
+                $item->url = str_replace('/zen/', '/category/zen/', $item->url);
+            }
+        }
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'fix_category_links_in_menu', 10, 2);

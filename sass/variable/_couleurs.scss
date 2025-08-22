@@ -1,8 +1,24 @@
-// Variables de couleurs
-$couleur-primaire: #20B2AA; // Couleur principale venant du logo
-$bleu-clair: #A7DCEF; // Couleur d'accent
+// Variables de couleurs améliorées
+$couleur-primaire: #20b2aa; // Couleur principale venant du logo
+$bleu-principal: #20b2aa; // Alias pour cohérence
+$bleu-clair: #a7dcef; // Couleur d'accent
+$bleu-fonce: #1a9b94; // Version plus foncée du bleu principal
 $texte-sombre: #333333; // Couleur de texte sombre
-$texte-clair: #FFFFFF; // Couleur de texte clair
-$fond-clair: #FFFFFF; // Couleur de fond clair
-$fond-sombre: #F5F5F5; // Couleur de fond sombre
-$couleur-accent: #FF9800; // Couleur d'accent orange (Boutons, Hovers, etc.)
+$texte-clair: #ffffff; // Couleur de texte clair
+$fond-clair: #ffffff; // Couleur de fond clair
+$fond-sombre: #f5f5f5; // Couleur de fond sombre
+$couleur-accent: #ff9800; // Couleur d'accent orange (Boutons, Hovers, etc.)
+
+// Couleurs supplémentaires pour les nouveaux éléments
+$vert-principal: #28a745; // Pour les messages de succès
+$rouge-principal: #dc3545; // Pour les messages d'erreur
+$jaune-principal: #ffc107; // Pour les avertissements
+
+// Gradients
+$gradient-principal: linear-gradient(135deg, #{$bleu-principal} 0%, #{$bleu-clair} 100%);
+$gradient-accent: linear-gradient(135deg, #{$couleur-accent} 0%, #ff7043 100%);
+
+// Opacités
+$ombre-legere: rgba(0, 0, 0, 0.1);
+$ombre-moyenne: rgba(0, 0, 0, 0.2);
+$ombre-forte: rgba(0, 0, 0, 0.3);

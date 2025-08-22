@@ -1,59 +1,77 @@
 <?php get_header(); ?>
 
-<div class="category-page">
-  <div class="category-header">
-    <h1 class="category-title"><?php single_cat_title(); ?></h1>
-    <?php if (category_description()) : ?>
-      <div class="category-description">
-        <?php echo category_description(); ?>
-      </div>
-    <?php endif; ?>
-  </div>
-
-  <div class="conteneur">
-    <?php if (have_posts()) : ?>
-      <?php while (have_posts()) : the_post(); ?>
-        <article class="conteneur__carte">
-          <?php if (has_post_thumbnail()) : ?>
-            <div class="conteneur__carte__image">
-              <?php the_post_thumbnail('medium_large', array('alt' => get_the_title())); ?>
-            </div>
-          <?php endif; ?>
-
-          <div class="conteneur__carte__content">
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-
-            <div class="conteneur__carte__meta">
-              <span class="date"><?php echo get_the_date(); ?></span>
-              <span class="author">Par <?php the_author(); ?></span>
-            </div>
-
-            <div class="conteneur__carte__text">
-              <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
-            </div>
-
-            <div class="conteneur__carte__button">
-              <a href="<?php the_permalink(); ?>">Lire la suite</a>
-            </div>
+<main class="site__main">
+  <section class="category-page">
+    <div class="category-header">
+      <div class="category-header__content">
+        <h1 class="category-title">
+          <span class="category-title__icon">✈️</span>
+          <?php single_cat_title(); ?>
+        </h1>
+        <?php if (category_description()) : ?>
+          <div class="category-description">
+            <?php echo category_description(); ?>
           </div>
-        </article>
-      <?php endwhile; ?>
-    <?php else : ?>
-      <div class="no-posts">
-        <h2>Aucun article trouvé</h2>
-        <p>Il n'y a pas d'articles dans cette catégorie pour le moment.</p>
-      </div>
-    <?php endif; ?>
-  </div>
+        <?php endif; ?>
 
-  <?php
-  // Pagination
-  the_posts_pagination(array(
-    'mid_size' => 2,
-    'prev_text' => '← Précédent',
-    'next_text' => 'Suivant →',
-  ));
-  ?>
-</div>
+        <div class="category-stats">
+          <?php
+          global $wp_query;
+          $total_posts = $wp_query->found_posts;
+          ?>
+          <span class="category-stats__count">
+            <?php echo $total_posts; ?> destination<?php echo $total_posts > 1 ? 's' : ''; ?>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-content">
+      <?php if (have_posts()) : ?>
+        <div class="conteneur conteneur--category">
+          <?php while (have_posts()) : the_post(); ?>
+            <?php get_template_part('gabarit/carte'); ?>
+          <?php endwhile; ?>
+        </div>
+
+        <!-- Pagination améliorée -->
+        <nav class="category-pagination">
+          <?php
+          the_posts_pagination(array(
+            'mid_size' => 2,
+            'prev_text' => '<span class="pagination-icon">←</span> Précédent',
+            'next_text' => 'Suivant <span class="pagination-icon">→</span>',
+            'screen_reader_text' => 'Navigation des pages de la catégorie',
+          ));
+          ?>
+        </nav>
+
+      <?php else : ?>
+        <div class="category-no-posts">
+          <div class="category-no-posts__icon">🏝️</div>
+          <h2 class="category-no-posts__title">Aucune destination trouvée</h2>
+          <p class="category-no-posts__text">
+            Il n'y a pas encore de destinations dans cette catégorie.
+            Explorez nos autres catégories pour découvrir de nouveaux horizons !
+          </p>
+
+          <!-- Affichage des autres catégories avec la fonction carte() -->
+          <div class="category-suggestions">
+            <h3 class="category-suggestions__title">Découvrez d'autres destinations</h3>
+            <?php
+            // Utilisation de la fonction carte() en excluant la catégorie actuelle
+            $current_category = get_queried_object();
+            if ($current_category && isset($current_category->slug)) {
+              carte($current_category->slug);
+            } else {
+              carte();
+            }
+            ?>
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
+  </section>
+</main>
 
 <?php get_footer(); ?>

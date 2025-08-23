@@ -15,6 +15,8 @@ if (isset($_GET['inscription']) && $_GET['inscription'] == 'merci') {
 
 <?php get_template_part('gabarit/populaire'); ?>
 
+<?php get_template_part('gabarit/filtres-destinations'); ?>
+
 <!-- FORMULAIRE D'INSCRIPTION -->
 <section class="inscription">
     <div class="container">

@@ -8,3 +8,5 @@ include_once "{$functions_dir}main-config.php";
 include_once "{$functions_dir}customizer.php";
 include_once "{$functions_dir}carousel.php";
 include_once "{$functions_dir}carte.php";
+// Include REST API for dynamic filters
+include_once "{$functions_dir}rest-api.php";

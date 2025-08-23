@@ -1,0 +1,710 @@
+/**
+ * Styles pour la section filtre dynamique avec accordéon animé
+ * Design original et adaptatif - Version SCSS
+ * Suivant le style des cartes existantes (carte-categorie)
+ */
+
+// Import des variables nécessaires
+@import "../variable/couleurs";
+
+/* Section principale */
+.filtres-destinations {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, $couleur-primaire 0%, $bleu-clair 50%, $couleur-primaire 100%);
+    }
+
+    /* En-tête de section */
+    &__header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    &__titre {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    &__icon {
+        font-size: 2rem;
+        animation: pulse 2s infinite;
+    }
+
+    &__description {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* Barre de recherche */
+    &__search {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Contrôles du filtre */
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    /* Loading spinner */
+    &__loading {
+        text-align: center;
+        padding: 3rem 0;
+        display: none;
+    }
+
+    /* Accordéon */
+    &__accordion {
+        display: grid;
+        gap: 1rem;
+    }
+
+    /* Résultats de recherche */
+    &__results {
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* Messages d'erreur */
+    &__error {
+        text-align: center;
+        padding: 3rem 0;
+        color: #dc3545;
+    }
+}
+
+/* Barre de recherche */
+.search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+
+    &:focus-within {
+        box-shadow: 0 6px 25px rgba($couleur-primaire, 0.2);
+    }
+
+    &__input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        background: transparent;
+        color: #333;
+
+        &::placeholder {
+            color: #999;
+            font-style: italic;
+        }
+    }
+
+    &__button {
+        padding: 1rem 1.5rem;
+        background: $couleur-primaire;
+        border: none;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: #1a9b94; // Darker version of $couleur-primaire
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba($couleur-primaire, 0.3);
+
+            .search-bar__icon {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Contrôles du filtre */
+.filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+
+    &:hover {
+        background: $couleur-primaire;
+        color: white;
+        border-color: $couleur-primaire;
+        box-shadow: 0 4px 15px rgba($couleur-primaire, 0.3);
+        transform: translateY(-2px);
+    }
+
+    &__icon {
+        transition: transform 0.3s ease;
+    }
+}
+
+.filter-stats {
+    font-weight: 500;
+    color: #666;
+    padding: 0.75rem 1rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Loading spinner */
+.spinner {
+    margin: 0 auto 1rem;
+    width: 50px;
+    height: 50px;
+
+    &__circle {
+        width: 100%;
+        height: 100%;
+        border: 4px solid #e9ecef;
+        border-top: 4px solid $couleur-primaire;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+/* Accordéon - Style identique aux cartes existantes */
+.accordion-item {
+    background: white;
+    border-radius: 15px; // Même que carte-categorie
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); // Même que carte-categorie
+    overflow: hidden;
+    transition: all 0.4s ease; // Même que carte-categorie
+    border: 1px solid rgba($couleur-primaire, 0.1);
+
+    &:hover {
+        transform: translateY(-10px); // Même que carte-categorie:hover
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); // Même que carte-categorie:hover
+        border-color: rgba($couleur-primaire, 0.2);
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.3s ease;
+        position: relative;
+
+        &:hover {
+            background: #f8f9fa;
+        }
+
+        &[aria-expanded="true"] {
+            background: $couleur-primaire;
+            color: white;
+
+            .accordion-item__title {
+                color: white;
+            }
+
+            .accordion-item__count {
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+            }
+
+            .accordion-item__icon {
+                color: white;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 1.3rem; // Même que carte-categorie__titre
+        font-weight: 600; // Même que carte-categorie__titre
+        margin: 0;
+        color: $couleur-primaire; // Même que carte-categorie__titre
+        font-family: "Montserrat", sans-serif; // Même que carte-categorie__titre
+    }
+
+    &__count {
+        background: rgba($couleur-primaire, 0.1); // Même style que carte-categorie__count
+        color: #888; // Même que carte-categorie__count
+        padding: 0.25rem 0.75rem; // Même que carte-categorie__count
+        border-radius: 12px; // Même que carte-categorie__count
+        font-size: 0.8rem; // Même que carte-categorie__count
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    &__icon {
+        transition: transform 0.3s ease;
+        color: #666;
+    }
+
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #f8f9fa;
+
+        &--open {
+            border-top: 1px solid #e9ecef;
+        }
+    }
+
+    &__description {
+        padding: 1.5rem 2rem 1rem;
+        color: #666; // Même que carte-categorie__description
+        font-style: italic;
+        line-height: 1.5; // Même que carte-categorie__description
+        font-size: 0.9rem; // Même que carte-categorie__description
+    }
+
+    &__destinations {
+        padding: 0 2rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Même que cartes-categories
+        gap: 2rem; // Même que cartes-categories
+    }
+}
+
+/* Cartes de destination - Style identique aux carte-categorie */
+.destination-card {
+    background: white;
+    border-radius: 15px; // Même que carte-categorie
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); // Même que carte-categorie
+    transition: all 0.4s ease; // Même que carte-categorie
+    position: relative;
+    min-height: 480px; // Augmenté pour cartes plus hautes
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-10px); // Même que carte-categorie:hover
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); // Même que carte-categorie:hover
+
+        .destination-card__overlay {
+            opacity: 0.3; // Même que carte-categorie:hover .carte-categorie__overlay
+        }
+
+        .destination-card__img {
+            transform: scale(1.1); // Même que carte-categorie:hover .carte-categorie__img
+        }
+
+        .destination-card__cta {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .destination-card__bouton {
+            color: #1a9b94; // Darker version of $couleur-primaire
+            transform: translateX(5px); // Même que carte-categorie:hover .carte-categorie__bouton
+        }
+
+        .destination-card__arrow {
+            transform: translateX(3px); // Même que carte-categorie:hover .carte-categorie__icon
+        }
+    }
+
+    &__link {
+        text-decoration: none; // Même que carte-categorie__lien
+        color: inherit; // Même que carte-categorie__lien
+        display: flex;
+        flex-direction: column;
+        height: 100%; // Même que carte-categorie__lien
+    }
+
+    &__image {
+        position: relative;
+        height: 240px; // Augmenté pour meilleure mise en page
+        overflow: hidden; // Même que carte-categorie__image
+        flex-shrink: 0;
+    }
+
+    &__img {
+        width: 100%; // Même que carte-categorie__img
+        height: 100%; // Même que carte-categorie__img
+        object-fit: cover; // Même que carte-categorie__img
+        transition: transform 0.4s ease; // Même que carte-categorie__img
+    }
+
+    &__overlay {
+        position: absolute; // Même que carte-categorie__overlay
+        top: 0; // Même que carte-categorie__overlay
+        left: 0; // Même que carte-categorie__overlay
+        right: 0; // Même que carte-categorie__overlay
+        bottom: 0; // Même que carte-categorie__overlay
+        background: linear-gradient(135deg, $couleur-primaire 0%, $bleu-clair 100%); // Même que carte-categorie__overlay
+        opacity: 0; // Même que carte-categorie__overlay
+        transition: opacity 0.4s ease; // Même que carte-categorie__overlay
+    }
+
+    &__content {
+        padding: 1.5rem; // Même que carte-categorie__contenu
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative; // Même que carte-categorie__contenu
+    }
+
+    &__title {
+        color: $couleur-primaire; // Même que carte-categorie__titre
+        font-size: 1.3rem; // Même que carte-categorie__titre
+        font-weight: 600; // Même que carte-categorie__titre
+        margin-bottom: 0.5rem; // Même que carte-categorie__titre
+        font-family: "Montserrat", sans-serif; // Même que carte-categorie__titre
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &__excerpt {
+        color: #666; // Même que carte-categorie__description
+        font-size: 0.9rem; // Même que carte-categorie__description
+        line-height: 1.5; // Même que carte-categorie__description
+        margin-bottom: 1rem; // Même que carte-categorie__description
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex: 1;
+    }
+
+    &__meta {
+        display: flex; // Même que carte-categorie__meta
+        align-items: center; // Même que carte-categorie__meta
+        justify-content: space-between; // Même que carte-categorie__meta
+        margin-bottom: 1rem; // Même que carte-categorie__meta
+        font-size: 0.8rem;
+        color: #999;
+        margin-top: auto;
+        padding-top: 0.5rem;
+    }
+
+    &__category {
+        font-size: 0.8rem; // Même que carte-categorie__count
+        color: #888; // Même que carte-categorie__count
+        background: rgba($couleur-primaire, 0.1); // Même que carte-categorie__count
+        padding: 0.25rem 0.75rem; // Même que carte-categorie__count
+        border-radius: 12px; // Même que carte-categorie__count
+        font-weight: 500;
+    }
+
+    &__cta {
+        text-align: right; // Même que carte-categorie__cta
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.3s ease;
+    }
+
+    &__bouton {
+        display: inline-flex; // Même que carte-categorie__bouton
+        align-items: center; // Même que carte-categorie__bouton
+        gap: 0.5rem; // Même que carte-categorie__bouton
+        color: $couleur-primaire; // Même que carte-categorie__bouton
+        font-weight: 600; // Même que carte-categorie__bouton
+        font-size: 0.9rem; // Même que carte-categorie__bouton
+        transition: all 0.3s ease; // Même que carte-categorie__bouton
+    }
+
+    &__arrow {
+        fill: currentColor; // Même que carte-categorie__icon
+        transition: transform 0.3s ease; // Même que carte-categorie__icon
+    }
+}
+
+/* Résultats de recherche */
+.search-results {
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+
+    &__clear {
+        background: $couleur-primaire;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #1a9b94; // Darker version of $couleur-primaire
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba($couleur-primaire, 0.3);
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); // Même que cartes-categories
+        gap: 2rem; // Même que cartes-categories
+        justify-content: center;
+
+        // Style spécial pour un seul résultat
+        &--single-result {
+            display: flex;
+            justify-content: center;
+            
+            .destination-card {
+                max-width: 450px; // Largeur maximale pour un seul résultat
+                min-height: 520px; // Hauteur augmentée pour une meilleure présentation
+                
+                &__image {
+                    height: 280px; // Image plus haute pour un résultat unique
+                }
+                
+                &__content {
+                    padding: 2rem; // Plus d'espacement pour un meilleur équilibre
+                }
+                
+                &__title {
+                    font-size: 1.5rem; // Titre plus grand
+                    margin-bottom: 1rem;
+                }
+                
+                &__excerpt {
+                    font-size: 1rem; // Texte légèrement plus grand
+                    line-height: 1.6;
+                    margin-bottom: 1.5rem;
+                    -webkit-line-clamp: 3; // Plus de lignes autorisées
+                    line-clamp: 3;
+                }
+            }
+        }
+    }
+}
+
+/* Messages d'erreur */
+.error-message {
+    h3 {
+        color: #dc3545;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: #666;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.accordion-item {
+    animation: fadeIn 0.3s ease forwards;
+
+    &:nth-child(n) {
+        animation-delay: calc(var(--item-index, 0) * 0.1s);
+    }
+}
+
+/* Design adaptatif */
+@media (max-width: 1024px) {
+    .accordion-item__destinations {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .search-results__grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .filtres-destinations {
+        padding: 2rem 0;
+
+        &__titre {
+            font-size: 2rem;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        &__controls {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+
+    .filter-toggle {
+        justify-content: center;
+    }
+
+    .accordion-item {
+        &__header {
+            padding: 1rem 1.5rem;
+        }
+
+        &__title {
+            font-size: 1.1rem;
+        }
+
+        &__destinations {
+            grid-template-columns: 1fr;
+            padding: 0 1.5rem 1.5rem;
+            gap: 1.5rem;
+        }
+    }
+
+    .destination-card {
+        min-height: 350px;
+    }
+
+    .search-results__grid {
+        grid-template-columns: 1fr;
+        
+        // Style responsive pour un seul résultat sur mobile
+        &--single-result {
+            .destination-card {
+                max-width: 100%; // Prendre toute la largeur sur mobile
+                min-height: 450px; // Hauteur réduite sur mobile
+                
+                &__image {
+                    height: 220px; // Image moins haute sur mobile
+                }
+                
+                &__content {
+                    padding: 1.5rem; // Espacement réduit sur mobile
+                }
+                
+                &__title {
+                    font-size: 1.3rem; // Titre légèrement réduit
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        border-radius: 25px;
+
+        &__input {
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        &__button {
+            padding: 0.75rem 1rem;
+        }
+    }
+
+    .destination-card__content {
+        padding: 1rem;
+    }
+}
+
+/* États de focus pour l'accessibilité */
+.search-bar__input:focus,
+.accordion-item__header:focus,
+.filter-toggle:focus,
+.search-results__clear:focus {
+    outline: 2px solid $couleur-primaire;
+    outline-offset: 2px;
+}
+
+/* Mode sombre (optionnel) */
+@media (prefers-color-scheme: dark) {
+    .filtres-destinations {
+        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+
+        &__titre,
+        &__description {
+            color: #e2e8f0;
+        }
+    }
+
+    .accordion-item,
+    .destination-card,
+    .search-bar {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+
+    .accordion-item__content {
+        background: #1a202c;
+    }
+}

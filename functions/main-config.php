@@ -45,6 +45,22 @@ function theme_tp_enqueue_scripts()
         true
     );
 
+    // Enqueue filter destinations script
+    wp_enqueue_script(
+        'filtres-destinations',
+        get_template_directory_uri() . '/script/filtres-destinations.js',
+        array(),
+        '1.0.0',
+        true
+    );
+
+    // Localize script for REST API
+    wp_localize_script('filtres-destinations', 'wpApiSettings', array(
+        'root' => esc_url_raw(rest_url()),
+        'nonce' => wp_create_nonce('wp_rest'),
+        'homeUrl' => home_url('/'),
+    ));
+
     // Note: hero.js is temporarily disabled to avoid conflicts with the new carousel system
     // If needed, it can be re-enabled after reviewing its compatibility
 }

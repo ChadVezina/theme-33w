@@ -1,0 +1,13 @@
+{
+  "name": "theme-33w-ete-25",
+  "version": "1.0.0",
+  "description": "WordPress theme with Sass compilation",
+  "scripts": {
+    "sass": "sass sass/style.scss style.css",
+    "sass:watch": "sass --watch sass/style.scss style.css",
+    "sass:production": "sass sass/style.scss style.css --style compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}

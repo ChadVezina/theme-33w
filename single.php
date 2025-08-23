@@ -100,4 +100,6 @@
     <?php endif; ?>
 </main>
 
+<?php echo render_section_separator('wave-soft'); ?>
+
 <?php get_footer(); ?>

@@ -26,6 +26,8 @@
       </div>
     </div>
 
+    <?php echo render_section_separator('wave-soft'); ?>
+
     <div class="category-content">
       <?php if (have_posts()) : ?>
         <div class="conteneur conteneur--category">

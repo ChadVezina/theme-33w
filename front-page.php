@@ -13,9 +13,15 @@ if (isset($_GET['inscription']) && $_GET['inscription'] == 'merci') {
 
 <?php get_template_part('gabarit/carousel'); ?>
 
+<?php echo render_section_separator('wave-soft', array('position' => 'top')); ?>
+
 <?php get_template_part('gabarit/populaire'); ?>
 
+<?php echo render_section_separator('wave-soft'); ?>
+
 <?php get_template_part('gabarit/filtres-destinations'); ?>
+
+<?php echo render_section_separator('wave-soft', array('position' => 'top')); ?>
 
 <!-- FORMULAIRE D'INSCRIPTION -->
 <section class="inscription">
@@ -56,6 +62,8 @@ if (isset($_GET['inscription']) && $_GET['inscription'] == 'merci') {
         </form>
     </div>
 </section>
+
+<?php echo render_section_separator('wave-soft'); ?>
 
 <?php get_template_part('gabarit/contact'); ?>
 

@@ -1,15 +1,3 @@
-<?php
-
-/**
- * Gabarit pour le formulaire d'inscription simple
- */
-?>
-
-<!-- TEST DEBUG: Formulaire d'inscription chargé -->
-
-<div style="background: red; color: white; padding: 20px; text-align: center; margin: 20px 0;">
-    <h2>TEST - Formulaire d'inscription visible</h2>
-</div>
 
 <style>
     .inscription {

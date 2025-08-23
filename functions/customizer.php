@@ -539,3 +539,182 @@ function render_footer_destination()
     </div>
 <?php
 }
+
+/**
+ * Add SVG Separators settings to customizer
+ */
+function add_svg_separators_customizer($wp_customize)
+{
+    // SVG Separators Panel
+    $wp_customize->add_panel('svg_separators_panel', array(
+        'title' => __('Séparateurs SVG', '33w-ete-25'),
+        'description' => __('Personnalisez l\'apparence des séparateurs de vagues entre les sections', '33w-ete-25'),
+        'priority' => 25,
+    ));
+
+    // Colors Section
+    $wp_customize->add_section('svg_colors_section', array(
+        'title' => __('Couleurs des Vagues', '33w-ete-25'),
+        'panel' => 'svg_separators_panel',
+        'priority' => 10,
+    ));
+
+    // Primary Color
+    $wp_customize->add_setting('svg_primary_color', array(
+        'default' => '#20b2aa',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'svg_primary_color', array(
+        'label' => __('Couleur Principale', '33w-ete-25'),
+        'section' => 'svg_colors_section',
+        'description' => __('Couleur principale des vagues', '33w-ete-25'),
+    )));
+
+    // Secondary Color
+    $wp_customize->add_setting('svg_secondary_color', array(
+        'default' => '#40e0d0',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ));
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'svg_secondary_color', array(
+        'label' => __('Couleur Secondaire', '33w-ete-25'),
+        'section' => 'svg_colors_section',
+        'description' => __('Couleur secondaire pour le dégradé', '33w-ete-25'),
+    )));
+
+    // Animation Section
+    $wp_customize->add_section('svg_animation_section', array(
+        'title' => __('Animation des Vagues', '33w-ete-25'),
+        'panel' => 'svg_separators_panel',
+        'priority' => 20,
+    ));
+
+    // Enable Animation
+    $wp_customize->add_setting('svg_animation_enabled', array(
+        'default' => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ));
+    $wp_customize->add_control('svg_animation_enabled', array(
+        'label' => __('Activer les Animations', '33w-ete-25'),
+        'section' => 'svg_animation_section',
+        'type' => 'checkbox',
+        'description' => __('Cochez pour activer les animations des vagues', '33w-ete-25'),
+    ));
+
+    // Animation Speed
+    $wp_customize->add_setting('svg_animation_speed', array(
+        'default' => 8,
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('svg_animation_speed', array(
+        'label' => __('Vitesse d\'Animation (secondes)', '33w-ete-25'),
+        'section' => 'svg_animation_section',
+        'type' => 'range',
+        'input_attrs' => array(
+            'min' => 3,
+            'max' => 20,
+            'step' => 1,
+        ),
+        'description' => __('Durée d\'un cycle d\'animation (plus élevé = plus lent)', '33w-ete-25'),
+    ));
+
+    // Dimensions Section
+    $wp_customize->add_section('svg_dimensions_section', array(
+        'title' => __('Dimensions des Vagues', '33w-ete-25'),
+        'panel' => 'svg_separators_panel',
+        'priority' => 30,
+    ));
+
+    // Wave Height
+    $wp_customize->add_setting('svg_wave_height', array(
+        'default' => 100,
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('svg_wave_height', array(
+        'label' => __('Hauteur des Vagues (px)', '33w-ete-25'),
+        'section' => 'svg_dimensions_section',
+        'type' => 'range',
+        'input_attrs' => array(
+            'min' => 50,
+            'max' => 200,
+            'step' => 10,
+        ),
+        'description' => __('Hauteur en pixels des séparateurs de vagues', '33w-ete-25'),
+    ));
+
+    // Wave Amplitude
+    $wp_customize->add_setting('svg_wave_amplitude', array(
+        'default' => 40,
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('svg_wave_amplitude', array(
+        'label' => __('Amplitude des Vagues', '33w-ete-25'),
+        'section' => 'svg_dimensions_section',
+        'type' => 'range',
+        'input_attrs' => array(
+            'min' => 10,
+            'max' => 80,
+            'step' => 5,
+        ),
+        'description' => __('Amplitude du mouvement des vagues (plus élevé = vagues plus prononcées)', '33w-ete-25'),
+    ));
+
+    // Wave Count
+    $wp_customize->add_setting('svg_wave_count', array(
+        'default' => 3,
+        'sanitize_callback' => 'absint',
+    ));
+    $wp_customize->add_control('svg_wave_count', array(
+        'label' => __('Nombre de Vagues Superposées', '33w-ete-25'),
+        'section' => 'svg_dimensions_section',
+        'type' => 'select',
+        'choices' => array(
+            '1' => __('1 vague', '33w-ete-25'),
+            '2' => __('2 vagues', '33w-ete-25'),
+            '3' => __('3 vagues', '33w-ete-25'),
+            '4' => __('4 vagues', '33w-ete-25'),
+        ),
+        'description' => __('Nombre de vagues superposées pour créer l\'effet de profondeur', '33w-ete-25'),
+    ));
+
+    // Opacity
+    $wp_customize->add_setting('svg_wave_opacity', array(
+        'default' => 1.0,
+        'sanitize_callback' => 'sanitize_svg_opacity',
+    ));
+    $wp_customize->add_control('svg_wave_opacity', array(
+        'label' => __('Opacité des Vagues', '33w-ete-25'),
+        'section' => 'svg_dimensions_section',
+        'type' => 'range',
+        'input_attrs' => array(
+            'min' => 0.1,
+            'max' => 1.0,
+            'step' => 0.1,
+        ),
+        'description' => __('Transparence des vagues (1.0 = opaque, 0.1 = très transparent)', '33w-ete-25'),
+    ));
+
+    // Gradient Enable
+    $wp_customize->add_setting('svg_gradient_enabled', array(
+        'default' => true,
+        'sanitize_callback' => 'wp_validate_boolean',
+    ));
+    $wp_customize->add_control('svg_gradient_enabled', array(
+        'label' => __('Activer le Dégradé', '33w-ete-25'),
+        'section' => 'svg_colors_section',
+        'type' => 'checkbox',
+        'description' => __('Utilise un dégradé entre les couleurs principale et secondaire', '33w-ete-25'),
+    ));
+}
+
+/**
+ * Sanitize opacity value
+ */
+function sanitize_svg_opacity($input)
+{
+    $value = floatval($input);
+    return ($value >= 0.1 && $value <= 1.0) ? $value : 1.0;
+}
+
+// Hook to register customizer sections
+add_action('customize_register', 'theme_customize_register');
+add_action('customize_register', 'add_svg_separators_customizer');
